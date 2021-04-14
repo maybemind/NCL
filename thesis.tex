@@ -1,16 +1,20 @@
-\documentclass[fancyhdr, oneside, UTF8, openany]{ctexbook}
+\documentclass[oneside, UTF8, openany]{ctexbook}
 
-\usepackage[a4paper, left=2.1cm, right=2.1cm, top=2.1cm, bottom=2.1cm]{geometry}
+\usepackage{geometry}
 \usepackage{graphicx}
 \usepackage{comment}
 \usepackage{fancyvrb}
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{tabularx}
-\usepackage{fancyhdr}
 \usepackage{pdfpages}
 \usepackage{xurl}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{float}
+\usepackage{fancyhdr}
 
+% 各种参数的设定(包括宏包的设定).
 \input{NCL.def}
 
 \begin{document}
@@ -18,25 +22,26 @@
 % 封面导入, 可使用其他排版软件生成的PDF(可包含多页).
 \includepdf[pages=-]{cover.pdf}
 
-% 目录
+% 目录.
 \pagestyle{empty}
 \tableofcontents
 \thispagestyle{empty}
 \newpage
 
-% 摘要
+% 摘要.
 \input{abstract}
 
-% 正文部分设定
+% 正文部分设定.
 \newpage
 \pagestyle{fancy}
-\fancyhead[L,R]{}
-\fancyhead[C]{\header}
-\fancyfoot[C]{\thepage}
-\pagenumbering{arabic}
-\setcounter{page}{1}
+\fancyhf{}
+  \pagenumbering{arabic}
+  \setcounter{page}{1}
+  \fancyhead[L,R]{}
+  \fancyhead[C]{\header}
+  \fancyfoot[C]{\small\thepage}
 
-% 九章
+% 九章.
 \input{chapter1}
 \input{chapter2}
 \input{chapter3}
